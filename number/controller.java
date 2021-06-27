@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class controller {
@@ -15,6 +17,13 @@ public class controller {
     private Parent root;
     private Stage stage;
     private Scene scene;
+    @FXML
+    TextField user;
+    @FXML
+    PasswordField pass;
+
+    String username = user.getText();
+    String password = pass.getText();
     public void change(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
         root = loader.load();
