@@ -33,6 +33,7 @@ public class control {
         pwd = cont.password;
         numoftime++;
         int num = Integer.parseInt(Num.getText());
+        Num.clear();
         if(num == random){
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
