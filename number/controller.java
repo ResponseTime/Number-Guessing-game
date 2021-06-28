@@ -11,7 +11,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.sql.*;
-
+class myex extends Exception{
+    @Override
+    public String toString() {
+        return "put a password";
+    }
+}
 public class controller {
     @FXML
     private Parent root;
@@ -27,22 +32,24 @@ public class controller {
     public void change(ActionEvent e) throws IOException{
         username = user.getText();
         password = pass.getText();
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/aayush", "root","root");
-            System.out.println("connected");
-            Statement st = con.createStatement();
-            String query = "INSERT INTO LOGIN_INFO VALUES('"+username+"','"+password+"')";
-            st.executeUpdate(query);
-        }
-        catch(Exception ev){
-            ev.printStackTrace();
-        }
         if(username.length()==0 || password.length() == 0){
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             stage.close();
         }
         else{
+            try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/aayush", "root","root");
+                System.out.println("connected");
+                Statement st = con.createStatement();
+                String query  = "INSERT INTO LOGIN_INFO VALUES('"+username+"','"+password+"')";
+                st.executeUpdate(query);
+                   
+               
+            }
+            catch(Exception ev){
+                ev.printStackTrace();
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
             root = loader.load();
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -52,6 +59,9 @@ public class controller {
     
         }
         
+        
+        
+       
         
         
     }
