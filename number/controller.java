@@ -31,9 +31,7 @@ public class controller {
         
         username = user.getText();
         password = pass.getText();
-        if(user.getText() == null||pass.getText()==null){
-            root = FXMLLoader.load(getClass().getResource("ui.fxml"));
-            scene = new Scene(root);
+        if(username.length()==0 || password.length() == 0){
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             stage.close();
         }
