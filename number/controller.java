@@ -1,7 +1,6 @@
 package number;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,10 +24,25 @@ public class controller {
     int l = 1;
     String array [] = new String [k];
     String arr [] = new String[l];
+    String username;
+    String password;
    
     public void change(ActionEvent e) throws IOException{
-        String username = user.getText();
-        String password = pass.getText();
+        try{
+            username = user.getText();
+            password = pass.getText();
+        }
+        catch(NullPointerException eve){
+            eve.printStackTrace();
+        }
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    
         array = new String[k++];
         for(int i =0;i<array.length;i++){
             array[i] = username;
@@ -43,12 +57,7 @@ public class controller {
         for(String t:arr){
             System.out.println(t);
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
-        root = loader.load();
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        
     }
     
 }
