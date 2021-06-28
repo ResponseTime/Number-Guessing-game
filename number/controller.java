@@ -32,7 +32,7 @@ public class controller {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/aayush", "root","root");
             System.out.println("connected");
             Statement st = con.createStatement();
-            String query = "INSERT INTO LOGIN_INFO"+"VALUES('"+username+"','"+password+"')";
+            String query = "INSERT INTO LOGIN_INFO VALUES('"+username+"','"+password+"')";
             st.executeUpdate(query);
         }
         catch(Exception ev){
