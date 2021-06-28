@@ -28,21 +28,25 @@ public class controller {
     String password;
    
     public void change(ActionEvent e) throws IOException{
-        try{
-            username = user.getText();
-            password = pass.getText();
+        
+        username = user.getText();
+        password = pass.getText();
+        if(user.getText() == null||pass.getText()==null){
+            root = FXMLLoader.load(getClass().getResource("ui.fxml"));
+            scene = new Scene(root);
+            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            stage.close();
         }
-        catch(NullPointerException eve){
-            eve.printStackTrace();
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
+            root = loader.load();
+            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    
         }
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
-        root = loader.load();
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    
         array = new String[k++];
         for(int i =0;i<array.length;i++){
             array[i] = username;
