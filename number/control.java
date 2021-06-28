@@ -24,10 +24,13 @@ public class control {
     Label best;
     int bestof;
     Statement state;
-  
+    String user;
+    String pwd;
     
     public void play(ActionEvent e) throws Exception{
-        controller cont = new controller();
+       controller cont = new controller();
+        user = cont.username;
+        pwd = cont.password;
         numoftime++;
         int num = Integer.parseInt(Num.getText());
         if(num == random){
@@ -45,22 +48,22 @@ public class control {
             if(numoftime<5){
                 best.setText("200");
                 bestof+=200;
-                state.executeUpdate("UPDATE LOGIN_INFO SET BEST_SCORE ='"+bestof+"'WHERE USERNAME ='"+cont.username+"'");
+                state.executeUpdate("INSERT INTO LOGIN_INFO (BEST_SCORE) VALUES('"+bestof+"')");
             }
             else if(numoftime<10){
                 best.setText("100");
                 bestof+=100;
-                state.executeUpdate("UPDATE LOGIN_INFO SET BEST_SCORE ='"+bestof+"'WHERE USERNAME ='"+cont.username+"'");
+                state.executeUpdate("INSERT INTO LOGIN_INFO (BEST_SCORE) VALUES('"+bestof+"')");
             }
             else if(numoftime>=10&&numoftime<=15){
                 best.setText("50");
                 bestof+=50;
-                state.executeUpdate("UPDATE LOGIN_INFO SET BEST_SCORE ='"+bestof+"'WHERE USERNAME ='"+cont.username+"'");
+                state.executeUpdate("INSERT INTO LOGIN_INFO (BEST_SCORE) VALUES('"+bestof+"')");
             }
             else if(numoftime>15 && numoftime<=20){
                 best.setText("25");
                 bestof+=25;
-                state.executeUpdate("UPDATE LOGIN_INFO SET BEST_SCORE ='"+bestof+"'WHERE USERNAME ='"+cont.username+"'");
+                state.executeUpdate("INSERT INTO LOGIN_INFO (BEST_SCORE) VALUES('"+bestof+"')");
             }
         
 
