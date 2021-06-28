@@ -22,9 +22,10 @@ public class controller {
     @FXML
     PasswordField pass;
 
-    String username = user.getText();
-    String password = pass.getText();
+   
     public void change(ActionEvent e) throws IOException{
+        String username = user.getText();
+        String password = pass.getText();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ui2.fxml"));
         root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();

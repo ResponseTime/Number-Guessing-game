@@ -4,6 +4,15 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        {
+            "type": "java",
+            "name": "Launch Num",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/callr/Downloads/openjfx-16_windows-x64_bin-sdk/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "number.Num",
+            "projectName": "guess_9c918d0b"
+        },
         {
             "type": "java",
             "name": "Launch Num",
@@ -16,14 +25,13 @@
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "vmArgs": "--module-path C:/Users/callr/Downloads/openjfx-16_windows-x64_bin-sdk/javafx-sdk-16/lib--add-modules javafx.controls,javafx.fxml",
             "mainClass": "${file}"
         },
         {
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "vmArgs": "--module-path C:/Users/callr/Downloads/openjfx-16_windows-x64_bin-sdk/javafx-sdk-16/lib--add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path C:/Users/callr/Downloads/openjfx-16_windows-x64_bin-sdk/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "number.Main",
             "projectName": "Number Guessing Game_a6e6306a"
         }
