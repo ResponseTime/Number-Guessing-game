@@ -29,7 +29,7 @@ public class controller {
         password = pass.getText();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aayush", "root","root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/aayush", "root","root");
             System.out.println("connected");
             Statement st = con.createStatement();
             String query = "INSERT INTO LOGIN_INFO"+"VALUES(%s,%s)"+username+password;
